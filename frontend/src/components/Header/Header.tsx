@@ -20,12 +20,12 @@ const Header = ({ username, setUsername, setLoggedIn }: IHeaderProps) => {
   const fetchData = async () => {
     try {
       const res = await fetch("/api/user");
-      if (res.status === 401) {
-        navigate("/login");
-      } else if (res.status === 200) {
+      if (res.status === 200) {
         const data = await res.json();
         setUsername(data.username);
         setLoggedIn(true);
+      } else {
+        navigate("/login");
       }
     } catch (error) {
       console.error("Error:", error);

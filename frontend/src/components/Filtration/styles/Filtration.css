@@ -1,0 +1,26 @@
+.optionsContainer span {
+    color: var(--gray);
+}
+
+.options {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+}
+
+.options button {
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.selected {
+    background-color: var(--yellow);
+}
+
+@media (max-width: 836px) {
+    .closed {
+        display: none;
+    }
+}  

@@ -1,6 +1,5 @@
 module.exports = (app) =>
   app.get("/api/logout", async (req, res) => {
-    console.log(`GET /api/logout req.user=${req.session.username}`);
 
     req.session.username = null;
     req.session.save(function (err) {

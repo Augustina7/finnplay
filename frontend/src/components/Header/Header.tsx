@@ -36,7 +36,6 @@ const Header = ({ username, setUsername, setLoggedIn }: IHeaderProps) => {
     try {
       const res = await fetch("/api/logout");
 
-      console.log(res.status)
       if (res.status === 200) {
         setUsername("");
         setLoggedIn(false);

@@ -10,9 +10,7 @@ const getUser = async (username) => {
 
 module.exports = (app) =>
   app.post("/api/login", async (req, res) => {
-    console.log(`POST /api/login req.body=${JSON.stringify(req.body)}`);
     const { username, password } = req.body;
-    console.log(`POST /api/login username=${username} password=${password}`);
     const user = await getUser(username);
 
     if (!user || user.password !== password) {
@@ -28,7 +26,6 @@ module.exports = (app) =>
 
       req.session.save(function (err) {
         if (err) return next(err);
-        console.log(`POST /api/login req.session.user=${req.session.username}`);
         return res.status(200).json({
           userId: user.userId,
           username: user.username,
